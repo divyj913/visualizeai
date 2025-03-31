@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualise Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .glass:hover {
+            transform: scale(1.05);
+        }
+        .neon-glow {
+            text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff, 0 0 40px #00eaff;
+        }
+        .btn-glow {
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            box-shadow: 0 4px 15px rgba(255, 138, 0, 0.4);
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-glow:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 138, 0, 0.6);
+        }
+    </style>
+    </head>
+    <body class="flex items-center justify-center h-screen px-4">
+    <div class="max-w-lg w-full text-center glass">
+        <h1 class="text-4xl font-bold neon-glow mb-4">Visualise Learning</h1>
+        <p class="text-gray-300 text-lg mb-6">Transform your thoughts into AI-powered insights.</p>
+        
+        <form action="/" method="post" class="space-y-4">
+            <label for="text" class="block text-lg font-medium">What do you want to visualize today?</label>
+            <input type="text" id="text" name="text" placeholder="Enter a topic..." 
+                class="w-full px-4 py-2 text-black rounded-md focus:ring-2 focus:ring-blue-400" required>
+            
+            <button type="submit" class="w-full py-3 rounded-lg btn-glow text-white font-bold">
+                🔥 Visualize Now
+            </button>
+        </form>  
+
+        {% if response_text %}
+        <div class="mt-6 p-4 bg-gray-800 rounded-md">
+            <h2 class="text-xl font-semibold text-white">AI Response:</h2>
+            <p class="text-gray-300 mt-2">{{ response_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
