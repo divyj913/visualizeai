@@ -15,7 +15,7 @@ def gfg():
 	if request.method == "POST":
 		# getting input with query from  HTML form
 		query = request.form.get("text")
-		client = genai.Client(api_key="")
+		client = genai.Client(api_key="ENTER-API-KEY-HERE")
 		response = client.models.generate_content(
 		    model="gemini-2.0-flash", contents="Can you help me visualise"+query+"dont use any bold or italic text and keep it under 60 words", 
 		)
